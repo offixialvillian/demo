@@ -1,0 +1,378 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Card Component</title>
+        <style>
+            * { box-sizing: border-box; }
+            body{
+                margin: 0;
+                font-family: Arial, sans-serif;
+                
+            }
+
+            h3 {
+                font-style: italic;
+                color: black;
+            }
+
+            .logo {
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                height: 60px;
+                width: 100px;
+            }
+
+            .header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;      /* vertically centers logo and search bar together */
+                padding: 1px 20px;
+                background-color: #9c0a90;
+                max-height: 60px;
+            }
+
+            .card-list {
+                display: flex;
+                text-align: center;
+                font-weight: 700;
+                justify-content: center;
+            }
+
+            .card-list img {
+                height: 70%;
+                width: 100%;
+            }
+
+            .topnav {
+                display: flex;
+                align-items: stretch;
+                flex: 1;                  /* stretches to fill remaining space next to logo */
+                max-width: 600px;
+                height: 40px;
+                border-radius: 6px;
+                overflow: hidden;
+                border: 1px solid #e21818;
+            }
+
+            .search-category {
+                background: #f0f2f2;
+                border: none;
+                border-right: 1px solid #ccc;
+                padding: 0 8px;
+                font-size: 14px;
+            }
+
+            .search-input {
+                flex: 1;
+                border: none;
+                padding: 0 12px;
+                font-size: 15px;
+                outline: none;
+            }
+
+            .search-button {
+                background: #febd69;
+                border: none;
+                padding: 0 16px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            .search-button:hover {
+                background: #f3a847;
+            }
+
+             .deliver-to{
+                display: flex;
+                flex-direction: column;
+                font-size: 12px;
+                white-space: nowrap;
+                color: white;
+             }
+
+             .nav-right{
+                display: flex;
+                align-items: center;
+                gap: 18px;
+                color: white;
+                font-weight: 700;
+             }
+
+             .nav-item{
+                display: flex;
+                flex-direction: column;
+                font-size: 12px;
+                white-space: nowrap;
+                cursor: pointer;
+             }
+
+             .nav-item strong{
+                font-size: 14px;
+             }
+
+             .nav-item.cart{
+                flex-direction: row;
+                align-items: center;
+                gap: 4px;
+                font-size: 20px;
+             }
+
+
+             .sidebar {
+                  
+                  height: 100%; /* 100% Full-height */
+                  width: 0; /* 0 width - change this with JavaScript */
+                  position: fixed; /* Stay in place */
+                  z-index: 1; /* Stay on top */
+                  top: 0;
+                  left: 0;
+                  background-color: white; /* Black*/
+                  overflow-x: hidden; /* Disable horizontal scroll */
+                  padding-top: 60px; /* Place content 60px from the top */
+                  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+                  
+  
+}
+
+/* The sidebar links */
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+  
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+  font-size: 10px;
+  cursor: pointer;
+  background-color: #a3499a;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+}
+
+.nav {
+  font-size: 10px;
+  cursor: pointer;
+  background-color: #a3499a;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  margin-left: 10px;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: margin-left .5s; /* If you want a transition effect */
+  padding: 20px;
+  width: 100%;
+  background-color: #7e0574;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+        </style>
+    </head>
+
+    <body>
+        <div class="header">
+    <div class="logo">
+        <img src="logo.svg" height="100%" width="100%">
+    </div>
+
+    <div class="deliver-to">
+        <span>📍 Deliver to</span>
+        <strong>United Kingdom</strong>
+    </div>
+
+    <div class="topnav">
+        <select class="search-category">
+            <option value="all">All</option>
+            <option value="consoles">Consoles</option>
+            <option value="games">Games</option>
+        </select>
+        <input type="text" class="search-input" placeholder="Search Kodak...">
+        <button class="search-button">🔍</button>
+    </div>
+
+    <div class="nav-right">
+        <div class="nav-item">
+            <span>Hello, sign in</span>
+            <strong>Account & Lists</strong>
+        </div>
+        <div class="nav-item">
+            <span>Returns</span>
+            <strong>& Orders</strong>
+        </div>
+        <div class="nav-item cart">
+            🛒 <strong>Cart</strong>
+        </div>
+    </div>
+</div>
+
+     <div id="mySidebar" class="sidebar">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="#" class="nav-link menu-icon>"About</a>
+          <a href="#" class="nav-link">Consoles</a>
+          <a href="#" class="nav-link">Games</a>
+          <a href="#" class="nav-link">Contact</a>
+       </div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">&#9776; ALL</button>
+  <button class="nav" onclick="openpanel()">About</button>
+    <button class="nav">Contact</button>
+    <button class="nav">Logout</button>
+</div>
+
+        <hr>
+        <center><h2>Consoles</h2></center>
+        <hr>
+
+        <template id="flex-card-template">
+            <style>
+                .flex-card {
+                    margin:5px 15px;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                    border: 1px solid #e21818;
+                    height: 300px;
+                    width: 200px;
+                    align-items: stretch;
+                    flex: 1;
+                }
+            </style>
+            <div class="flex-card">
+                <slot></slot>
+            </div>
+        </template>
+
+        <script>
+            class FlexCard extends HTMLElement {
+                connectedCallback() {
+                    const template = document.getElementById('flex-card-template');
+                    const content = template.content.cloneNode(true);
+                    this.attachShadow({ mode: 'open' }).appendChild(content);
+                }
+            }
+            customElements.define('flex-card', FlexCard);
+        </script>
+
+        
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+
+
+
+        <div class="card-list">
+            <flex-card>
+                <img src="https://tinyurl.com/5yfs9886">
+                <h3>Playstation 5 - 1TB </h3>
+                <a href="https://tinyurl.com/4dv6fcs6">£439.99</a>
+            </flex-card>
+
+            <flex-card>
+                <img src="https://tinyurl.com/fwju8n4j">
+                <h3>Xbox 360</h3>
+                <a href="https://tinyurl.com/y8as9e5x">£240</a>
+            </flex-card>
+
+            <flex-card>
+                <img src="https://tinyurl.com/3drphrhm">
+                <h3>Playstation 3</h3>
+                <a href="https://tinyurl.com/ymxh77vh">£160</a>
+            </flex-card>
+
+            <flex-card>
+                <img src="https://tinyurl.com/bdf3nzev">
+                <h3>Playstation 4</h3>
+                <a href="https://tinyurl.com/3y9t9466">£500</a>
+            </flex-card>
+
+            <flex-card>
+                <img src="https://tinyurl.com/mvrvt535">
+                <h3>Nintendo switch 2</h3>
+                <a href="https://tinyurl.com/bdcwdaev">£380</a>
+            </flex-card>
+        </div>
+
+        <hr>
+        <center><h2>Games</h2></center>
+        <hr>
+
+        <div class="card-list">
+            <flex-card>
+                <img src="https://tinyurl.com/2nfnckuw">
+                <h3>GTA IV</h3>
+                <a href="https://tinyurl.com/vv2t9mmm">£5.61</a>
+            </flex-card>
+
+            <flex-card>
+                <img src="https://tinyurl.com/3dztn5ud">
+                <h3>GTA V</h3>
+                <a href="https://tinyurl.com/u98528f4">£18.00</a>
+            </flex-card>
+
+            <flex-card>
+                <img src="https://tinyurl.com/mvvjxpha">
+                <h3>The Last of US</h3>
+                <a href="https://tinyurl.com/bddrbsrx">£30.99</a>
+            </flex-card>
+
+            <flex-card>
+                <img src="https://tinyurl.com/ms5z6ke7">
+                <h3>red Dead Redemption 2</h3>
+                <a href="https://tinyurl.com/ycx4njk7">£14.99</a>
+            </flex-card>
+
+            <flex-card>
+                <img src="https://tinyurl.com/y34bspwp">
+                <h3>UNCHARTED 4</h3>
+                <a href="https://tinyurl.com/3hr6f39j">£36.80</a>
+            </flex-card>
+        </div>
+    </body>
+</html>
